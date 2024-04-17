@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #031e4f;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 1px solid;
+    padding: 5px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: black;
+    color: white;
+}
+
+.container {
+    background-color: white;
+    overflow: hidden;
+    width: 750px;
+    min-height: fit-content;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+h1 {
+    color: #031e4f;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #031e4f;
+    padding-bottom: 10px;
+}
+
+p {
+    color: #031e4f;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+span {
+    display: block;
+    margin: auto;
+    background-color: #031e4f;
+    padding: 20px 10px;
+    border-radius: 10px;
+    color: white;
+    width: 110px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+span:hover {
+    background-color: rgba(3, 30, 79, 0.9);
+}
+
+.answered-ul {
+    pointer-events: none;
+}
+
+.answered-card {
+    cursor: not-allowed;
+}
+
+.wrong {
+    background-color: #ff9393;
+}
+
+.correct {
+    background-color: #9aeabc;
+}
