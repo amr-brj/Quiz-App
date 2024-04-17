@@ -5,7 +5,7 @@ const next = document.querySelector("span");
 let question = document.querySelector(".question");
 let grade = 0;
 let counter = 1;
-fetch('https://opentdb.com/api.php?amount=50').then(e => {
+fetch('https://opentdb.com/api.php?amount=10').then(e => {
     return e.json();
 }).then(e => {
     return e.results;
@@ -14,21 +14,20 @@ fetch('https://opentdb.com/api.php?amount=50').then(e => {
     createQuestion(q);
     card.addEventListener("click", e => {
         if (e.target.tagName === "SPAN") {
-            console.log(grade);
             p.innerHTML = "";
             document.querySelectorAll("li").forEach(e => {
                 ul.removeChild(e)
             })
             ul.classList.remove("answered-ul");
             card.classList.remove("answered-card");
-            ifEndShowGrade();
+            ifEndShowGrade(arr[counter]);
         }
     })
 })
 function createQuestion(e) {
     let answer = e.correct_answer;
-    console.log(answer);
     let arr = e.incorrect_answers;
+    console.log(arr);
     let rand = Math.floor(Math.random() * 4);
     arr.splice(rand, 0, answer);
     p.innerHTML = `${counter}. ` + e.question;
@@ -44,7 +43,6 @@ function createQuestion(e) {
             let temp = document.createElement("p");
             temp.innerHTML = answer;
             if (tar.innerHTML === temp.innerHTML) {
-                console.log(tar.innerHTML);
                 tar.classList.add("correct");
                 grade++;
             }
@@ -61,7 +59,7 @@ function createQuestion(e) {
         })
     })
 }
-function ifEndShowGrade() {
+function ifEndShowGrade(e) {
     if (counter > 9) {
         let p = document.createElement("p");
         p.innerHTML = `Your grade is ${grade} / ${counter}`;
@@ -69,5 +67,8 @@ function ifEndShowGrade() {
         next.remove();
         card.append(p);
     }
-    else createQuestion(counter++);
+    else {
+        createQuestion(e);
+        counter++;
+    }
 }
